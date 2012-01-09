@@ -23,6 +23,7 @@ class BunnyClient
     bunny.queue("autopost")
 
     bunny.exchange("")
+    bunny
   end
 end
 
