@@ -6,12 +6,9 @@ EventMachine.run do
 
     channel  = AMQP::Channel.new(connection)
 
-    channel.queue("amqpgem.examples.helloworld", :auto_delete => true).subscribe do |payload|
+    channel.queue("posts.sanitize", :auto_delete => true).subscribe do |payload|
       puts "Received a message: #{payload}. Disconnecting..."
-
-      connection.close { EventMachine.stop }
     end
 
-    channel.direct("").publish "Hello, world!", :routing_key => "amqpgem.examples.helloworld"
   end
 end

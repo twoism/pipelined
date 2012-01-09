@@ -6,7 +6,7 @@ class BunnyClient
 
   def publish(queue, msg)
     @bunny ||= setup_bunny
-    @bunny.publish(msg, :key => queue) 
+    @bunny.exchange("").publish(msg, :key => queue) 
   end
 
   def bunny
