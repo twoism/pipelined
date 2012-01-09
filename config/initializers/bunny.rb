@@ -17,11 +17,6 @@ class BunnyClient
     p "setting bunny up"
     bunny = Bunny.new
     bunny.start
-
-    bunny.queue("sanitize")
-    bunny.queue("process")
-    bunny.queue("autopost")
-
     bunny.exchange("")
     bunny
   end
