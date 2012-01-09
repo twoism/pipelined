@@ -9,7 +9,12 @@ class BunnyClient
     @bunny.publish(msg, :key => queue) 
   end
 
+  def bunny
+    @bunny ||= setup_bunny
+  end
+
   def setup_bunny
+    p "setting bunny up"
     bunny = Bunny.new
     bunny.start
 
